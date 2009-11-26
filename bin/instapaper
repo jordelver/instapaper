@@ -1,0 +1,27 @@
+#!/usr/local/bin/ruby
+require 'yaml'
+require "lib/instapaper"
+
+# Where the config file lives
+CONFIG_FILE = File.expand_path("~/.instapaper.yml")
+
+# Check if the config file exists, if not, create it
+if !File.exists?(CONFIG_FILE)
+  puts "Instapaper config file not found"
+  begin
+    File.open(CONFIG_FILE, 'w' ) do |out|
+      YAML.dump({ 'username' => 'username', 'password' => 'password' }, out)
+    end
+    puts "Created config file at #{CONFIG_FILE}. Please fill in your username and/or password."
+  rescue
+  end
+  exit
+end
+
+# Load config
+config = YAML.load_file(CONFIG_FILE)
+
+# Add url to Instapaper
+instapaper = Instapaper.new(config['username'], config['password'])
+result = instapaper.add(ARGV[0])
+puts "Instapaper: #{result[:message]}"

@@ -1,0 +1,9 @@
+Instapaper.rb - A very simple Instapaper library and commandline client
+
+TODO / IDEAS
+
+Add option parsing for add and authenticate
+
+Prompt for username and password and write to ~/.instapaper.yml
+
+Check that at least a username is supplied
