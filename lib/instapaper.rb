@@ -23,9 +23,11 @@ class Instapaper
     handle_response(request.code)
   end
 
-  def add(url_to_add = nil)
+  def add(url_to_add = nil, title = nil, selection = nil )
     url = "#{API_URL}/add"
-    @params.merge!('url' => url_to_add)
+    @params.merge!(
+      'url' => url_to_add, 'title' => title, 'selection' => selection
+    )
     request = perform_request(url)
     handle_response(request.code)
   end

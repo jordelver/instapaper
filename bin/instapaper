@@ -23,5 +23,5 @@ config = YAML.load_file(CONFIG_FILE)
 
 # Add url to Instapaper
 instapaper = Instapaper.new(config['username'], config['password'])
-result = instapaper.add(ARGV[0])
+result = instapaper.add(ARGV[0], ARGV[1], ARGV[2])
 puts "Instapaper: #{result[:message]}"
