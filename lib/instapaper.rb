@@ -3,6 +3,8 @@ require 'uri'
 
 class Instapaper
 
+  VERSION = "1.0.0"
+
   API_URL = "https://www.instapaper.com/api"
 
   RESPONSE_CODES = { 

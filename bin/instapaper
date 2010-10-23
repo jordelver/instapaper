@@ -1,6 +1,6 @@
-#!/usr/local/bin/ruby
+#!/usr/bin/env ruby
 require 'yaml'
-require "lib/instapaper"
+require 'instapaper'
 
 # Where the config file lives
 CONFIG_FILE = File.expand_path("~/.instapaper.yml")
